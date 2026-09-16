@@ -1,5 +1,10 @@
 # SmoothOperator
 
+![demo](docs/img/demo.gif)
+
+*RViz simulation (Kinova Gen3). Before vs after.*
+
+
 **The signal layer between a human hand and a robot arm, done right once.**
 dt-correct 1-Euro filters for position and rotation, a speed limit that pays
 back what it clips, a rate meter that tells you what you actually get, a
