@@ -4,7 +4,7 @@ The case that motivated this: a RealSense over a usbip link delivered
 ~5 Hz with gaps up to 0.93 s. The GUI's STALE threshold was 0.5 s, so the
 scene-camera panel flickered STALE on those gaps while the camera node itself
 reported no dropout -- because the node counted frames, not gaps. The rig's
-Kortex relay had a configured `rate_hz` of 30 and achieved 18.4-18.7 because
+An arm driver had a configured `rate_hz` of 30 and achieved 18.4-18.7 because
 each cycle was two sequential network round trips. Both numbers were only
 knowable by measuring, so: feed every timestamp here and read the answer.
 

@@ -26,7 +26,6 @@ teleop-signal = "teleop_signal.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/megazron/smoothoperator-teleop"
-Origin = "https://github.com/megazron/Multimodal-control-of-a-wearable-dual-arm-robotic-system-for-assisted-object-manipulation"
 
 [tool.setuptools.packages.find]
 where = ["src"]
