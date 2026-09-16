@@ -51,6 +51,11 @@ small, general mistake that any teleop stack can make.
   consecutive samples were unrelated. Range alone called them healthy. A
   circular-range rule and a jump-fraction rule found them.
 
+
+![one euro vs ema](docs/img/one_euro_vs_ema.png)
+
+*The example trajectory through the kit: a fixed EMA tuned to the same steadiness when still carries four times the lag on a reach; the 1-Euro opens its cutoff with speed.*
+
 ## What is in the kit
 
 | module | gives you |
@@ -63,6 +68,11 @@ small, general mistake that any teleop stack can make.
 | `channels` | `verdict` → DEAD / INCOHERENT / INTERMITTENT / ALIVE / SUSPECT, baseline diff |
 | `tuner` | the author's tuning procedure on a recorded trajectory, Nyquist-checked |
 | `cli` | `teleop-signal filter | tune | rate | align | channels | selftest` |
+
+
+![cutoff vs speed](docs/img/cutoff_vs_speed.png)
+
+*Why beta is tuned in factors of ten: 0.35 never opens the cutoff in metres, 100 crosses the 36 Hz Nyquist limit of a 72 Hz tracker above 0.35 m/s and goes inert; 10 stays in range.*
 
 ## Quickstart
 
@@ -89,6 +99,21 @@ while True:
 `examples/loop.py` is the same loop runnable on its own. Feed `time.monotonic()`,
 never the wall clock: a wall clock steps backwards on host resync and once
 measured a send latency of −2321 ms.
+
+
+![speed clip debt](docs/img/speed_clip_debt.png)
+
+*Two fast reaches through SpeedClip: the naive 1.20 m/s clamp falls further behind on every reach and never recovers the distance; the 2.00 m/s clip with give-back re-converges and its debt returns to zero.*
+
+
+![quat sign flip](docs/img/quat_sign_flip.png)
+
+*A slow wrist roll whose input quaternion flips sign at 3 s: the component-wise EMA swings 50 degrees off the true rotation, OneEuroQuat canonicalises the sign first and does not notice.*
+
+
+![ratemeter](docs/img/ratemeter.png)
+
+*RateMeter on a stream like the RealSense over usbip: the same frames flag five stale gaps at a 0.5 s threshold and none at 1.2 s. Measure the gaps before choosing the threshold.*
 
 ## Tuning procedure
 
@@ -137,6 +162,11 @@ det(R), and when the best orthogonal map is a reflection it says so and shows
 that the reflection fits your data better than any rotation, which is your
 evidence the operator is facing the robot.
 
+
+![reflection vs rotation](docs/img/reflection_vs_rotation.svg)
+
+*Mirroring a facing operator is a reflection: positions look right while every orientation is inverted. The kit solves a yaw from one known motion and uses a second motion only as a check.*
+
 ## Channel health
 
 ```
@@ -160,6 +190,11 @@ once reported 314 363°); steps are taken between **distinct** adjacent
 updates; DEAD if range < 5° or dropouts > 90 %; INCOHERENT if > 5 % of updates
 jump > 60°; INTERMITTENT if dropouts > 2 %; ALIVE if range ≥ 20 °; else SUSPECT.
 
+
+![channel verdicts](docs/img/channel_verdicts.png)
+
+*The four verdicts on examples/channels.csv, each with the statistics the kit reports. The INCOHERENT channel spans 348 degrees of range and would pass any range-only check.*
+
 ## Python API
 
 ```python
@@ -172,6 +207,10 @@ Every class has `reset()`. Every function is documented in its docstring with
 the failure it exists to prevent. `teleop-signal selftest` runs the
 constructed-signal checks (still-hand attenuation, lag against a
 comparably-steady EMA, the Nyquist trap) in under a second.
+
+## Figures
+
+Every figure in `docs/img/` is produced by `python3 docs/make_figures.py` from the kit's own classes on the example data, so they change when the code does.
 
 ## Origin
 
