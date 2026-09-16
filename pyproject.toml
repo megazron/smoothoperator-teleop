@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "teleop-signal-kit"
+version = "0.1.0"
+description = "Signal conditioning between a human-held input device and a robot arm: dt-correct 1-Euro filters, speed clipping that pays its debt back, rate metering, frame alignment that refuses reflections, and rotary-channel health verdicts."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Gaus Mohiuddin Sayyad", email = "maintainer@example.com"}]
+keywords = ["teleoperation", "one-euro-filter", "robotics", "vr", "smoothing", "kabsch"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = ["numpy>=1.22"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+teleop-signal = "teleop_signal.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/megazron/teleop-signal-kit"
+Origin = "https://github.com/megazron/Multimodal-control-of-a-wearable-dual-arm-robotic-system-for-assisted-object-manipulation"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
