@@ -2,7 +2,7 @@
 
 ![demo](docs/img/demo.gif)
 
-*RViz simulation (Kinova Gen3). Before vs after.*
+*Four test scenarios in RViz (Kinova Gen3).*
 
 **The signal layer between a human hand and a robot arm, done right once.**
 dt-correct 1-Euro filters for position and rotation, a speed limit that pays
