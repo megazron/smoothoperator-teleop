@@ -1,4 +1,4 @@
-"""teleop-signal-kit: the signal layer between a human hand and a robot arm.
+"""smoothoperator-teleop: the signal layer between a human hand and a robot arm.
 
 Nothing in this package imports ROS. The maths is tested against constructed
 signals whose answer is known, and wired into whatever middleware you run.

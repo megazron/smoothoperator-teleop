@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "teleop-signal-kit"
+name = "smoothoperator-teleop"
 version = "0.1.0"
 description = "Signal conditioning between a human-held input device and a robot arm: dt-correct 1-Euro filters, speed clipping that pays its debt back, rate metering, frame alignment that refuses reflections, and rotary-channel health verdicts."
 readme = "README.md"
@@ -25,7 +25,7 @@ dev = ["pytest>=7"]
 teleop-signal = "teleop_signal.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/megazron/teleop-signal-kit"
+Homepage = "https://github.com/megazron/smoothoperator-teleop"
 Origin = "https://github.com/megazron/Multimodal-control-of-a-wearable-dual-arm-robotic-system-for-assisted-object-manipulation"
 
 [tool.setuptools.packages.find]

@@ -1,4 +1,4 @@
-# teleop-signal-kit
+# SmoothOperator
 
 **The signal layer between a human hand and a robot arm, done right once.**
 dt-correct 1-Euro filters for position and rotation, a speed limit that pays
@@ -7,7 +7,7 @@ frame alignment that refuses to hand you a mirror, and health verdicts for
 rotary sensor channels. NumPy only. No ROS. Drop it into any teleop loop.
 
 ```
-pip install git+https://github.com/megazron/teleop-signal-kit
+pip install git+https://github.com/megazron/smoothoperator-teleop
 ```
 
 ## The problem
