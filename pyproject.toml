@@ -9,7 +9,7 @@ description = "Signal conditioning between a human-held input device and a robot
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
-authors = [{name = "Gaus Mohiuddin Sayyad", email = "maintainer@example.com"}]
+authors = [{name = "Gaus Mohiuddin Sayyad"}]
 keywords = ["teleoperation", "one-euro-filter", "robotics", "vr", "smoothing", "kabsch"]
 classifiers = [
   "Programming Language :: Python :: 3",
